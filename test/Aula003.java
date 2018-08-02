@@ -12,7 +12,7 @@ public class Aula003 {
     public void shouldAddAnElementToTheFirstPosition(){
         Vetor vetor = new Vetor(5);
         vetor.add("Elemento 1");
-        assertEquals(vetor.elementos[0],"Elemento 1" );
+//        assertEquals(vetor.listaElementos[0],"Elemento 1" );
 
     }
 
@@ -20,7 +20,6 @@ public class Aula003 {
     public void shouldAddAnElementTrue(){
         Vetor vetor = new Vetor(3);
         assertTrue(vetor.add("Elemento 1"));
-
     }
 
 }
