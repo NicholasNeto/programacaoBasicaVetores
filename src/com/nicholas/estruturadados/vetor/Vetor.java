@@ -26,12 +26,23 @@ public class Vetor {
   }
 
 
-  public String busca(int posicao){
+  public String busca(int posicao) {
 
         if(!(posicao >= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Position Invalid");
         }
         return listaElementos[posicao];
+  }
+
+
+  public int busca(String elemento){
+
+      for (int posicao = 0; posicao < tamanho; posicao++) {
+          if(listaElementos[posicao].equals(elemento)){
+              return posicao;
+          }
+      }
+        return -1;
   }
 
   @Override
