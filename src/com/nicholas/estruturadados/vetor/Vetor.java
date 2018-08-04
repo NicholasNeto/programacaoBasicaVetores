@@ -12,18 +12,36 @@ public class Vetor {
     }
 
 
-  public boolean add(String elemento){
-       if( tamanho < listaElementos.length){
-           listaElementos[tamanho] = elemento;
-           tamanho++;
-           return true;
-       }
-        return false;
-  }
-
   public int tamanho(){
         return this.tamanho;
   }
+
+
+  public boolean add(String elemento){
+    if( tamanho < listaElementos.length){
+        listaElementos[tamanho] = elemento;
+        tamanho++;
+        return true;
+    }
+    return false;
+    }
+
+    public boolean add(int posicao, String elemento) {
+
+        if(!(posicao >= 0 && posicao < tamanho)){
+            throw new IllegalArgumentException("Position Invalid");
+        }
+
+        for(int contador = tamanho - 1; contador >= posicao; contador--){
+            listaElementos[contador + 1 ] = listaElementos[contador];
+        }
+
+        listaElementos[posicao] = elemento;
+        tamanho++;
+
+        return true;
+    }
+
 
 
   public String busca(int posicao) {
