@@ -14,14 +14,12 @@ public class Aula008 {
 
         vetor =  new  Vetor(3);
 
-
         vetor.add("B");
         vetor.add("D");
         vetor.add("E");
 
         vetor.add(0, "A");
         vetor.add(2,"C");
-        System.out.print(vetor.toString());
 
     }
 
