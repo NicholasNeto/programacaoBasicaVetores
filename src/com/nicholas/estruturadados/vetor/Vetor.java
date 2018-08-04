@@ -21,16 +21,23 @@ public class Vetor {
         return false;
   }
 
-
   public int tamanho(){
         return this.tamanho;
   }
 
-    @Override
+
+  public String busca(int posicao){
+
+        if(!(posicao >= 0 && posicao < tamanho)){
+            throw new IllegalArgumentException("Position Invalid");
+        }
+        return listaElementos[posicao];
+  }
+
+  @Override
     public String toString() {
 
         StringBuilder superString = new StringBuilder();
-
         superString.append("[");
 
         for(int contador = 0; contador < tamanho -1 ; contador++){
@@ -43,7 +50,6 @@ public class Vetor {
         }
 
         superString.append("]");
-
         return superString.toString();
     }
 }
