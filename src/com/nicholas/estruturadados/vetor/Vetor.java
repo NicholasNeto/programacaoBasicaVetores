@@ -31,6 +31,19 @@ public class Vetor {
         }
     }
 
+    public void remove(int posicao){
+
+        if(!(posicao >= 0 && posicao < this.tamanho)){
+            throw new IllegalArgumentException("Position Invalid");
+        }
+
+        for(int contador = posicao; contador < this.tamanho-1; contador++){
+            listaElementos[contador] = listaElementos[contador+1];
+        }
+        this.tamanho--;
+    }
+
+
     public boolean add(String elemento) {
         aumentaCapacidade();
         if (tamanho < listaElementos.length) {
@@ -40,8 +53,6 @@ public class Vetor {
         }
         return false;
     }
-
-
 
     public boolean add(int posicao, String elemento) {
 
