@@ -45,11 +45,9 @@ public class Lista<T> {
     public void removeByElement(T posicao){
 
         int pos = busca(posicao);
-
-        for(int contador = pos; contador < this.tamanho-1; contador++){
-            this.listaElementos[contador] = this.listaElementos[contador+1];
+        if(isPositionValid(pos)){
+            removeByPosition(pos);
         }
-        this.tamanho--;
     }
 
 
@@ -109,10 +107,11 @@ public class Lista<T> {
         return -1;
     }
 
-    public void isPositionValid(int posicao){
+    public boolean isPositionValid(int posicao){
         if(!(posicao >= 0 && posicao < this.tamanho)) {
             throw new IllegalArgumentException("Position Invalid");
         }
+        return true;
     }
 
 
