@@ -33,9 +33,7 @@ public class VetorObject {
 
     public void remove(int posicao){
 
-        if(!(posicao >= 0 && posicao < this.tamanho)){
-            throw new IllegalArgumentException("Position Invalid");
-        }
+        isPositionValid(posicao);
 
         for(int contador = posicao; contador < this.tamanho-1; contador++){
             this.listaElementos[contador] = this.listaElementos[contador+1];
@@ -57,9 +55,7 @@ public class VetorObject {
     public boolean add(int posicao, Object elemento) {
 
         aumentaCapacidade();
-        if(!(posicao >= 0 && posicao < tamanho)){
-            throw new IllegalArgumentException("Position Invalid");
-        }
+        isPositionValid(posicao);
 
         for(int contador = tamanho - 1; contador >= posicao; contador--){
             listaElementos[contador + 1 ] = listaElementos[contador];
@@ -73,9 +69,8 @@ public class VetorObject {
 
     public Object busca(int posicao) {
 
-        if(!(posicao >= 0 && posicao < tamanho)){
-            throw new IllegalArgumentException("Position Invalid");
-        }
+        isPositionValid(posicao);
+
         return listaElementos[posicao];
     }
 
@@ -88,6 +83,13 @@ public class VetorObject {
             }
         }
         return -1;
+    }
+
+
+    public void isPositionValid(int posicao){
+        if(!(posicao >= 0 && posicao < this.tamanho)) {
+            throw new IllegalArgumentException("Position Invalid");
+        }
     }
 
     @Override
