@@ -76,7 +76,7 @@ public class Lista<T> {
         return true;
     }
 
-    public Object busca(int posicao) {
+    public T busca(int posicao) {
 
         isPositionValid(posicao);
         return listaElementos[posicao];
