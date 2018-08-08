@@ -30,11 +30,23 @@ public class Lista<T> {
         }
     }
 
-    public void remove(int posicao){
+    public void removeByPosition(int posicao){
 
         isPositionValid(posicao);
 
         for(int contador = posicao; contador < this.tamanho-1; contador++){
+            this.listaElementos[contador] = this.listaElementos[contador+1];
+        }
+        this.tamanho--;
+    }
+
+
+
+    public void removeByElement(T posicao){
+
+        int pos = busca(posicao);
+
+        for(int contador = pos; contador < this.tamanho-1; contador++){
             this.listaElementos[contador] = this.listaElementos[contador+1];
         }
         this.tamanho--;
@@ -90,7 +102,6 @@ public class Lista<T> {
     public int lastIndexOf(T elemento) {
 
         for (int posicao = this.tamanho-1; posicao > 0; posicao--) {
-            System.out.print(posicao);
             if(listaElementos[posicao].equals(elemento)){
                 return posicao;
             }
