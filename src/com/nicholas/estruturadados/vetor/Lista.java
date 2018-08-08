@@ -87,11 +87,23 @@ public class Lista<T> {
         return busca(elemento) > -1 ;
     }
 
+    public int lastIndexOf(T elemento) {
+
+        for (int posicao = this.tamanho-1; posicao > 0; posicao--) {
+            System.out.print(posicao);
+            if(listaElementos[posicao].equals(elemento)){
+                return posicao;
+            }
+        }
+        return -1;
+    }
+
     public void isPositionValid(int posicao){
         if(!(posicao >= 0 && posicao < this.tamanho)) {
             throw new IllegalArgumentException("Position Invalid");
         }
     }
+
 
     @Override
     public String toString() {
