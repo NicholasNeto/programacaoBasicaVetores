@@ -14,7 +14,6 @@ public class testExerc02 {
 
      */
 
-
     Lista list;
 
 
@@ -30,10 +29,16 @@ public class testExerc02 {
     }
 
     @Test
-    public void deveRetornarOIndiceDaUltimaPosicaoDoElementoBuscado() {
+    public void deveRetornarOIndexDaUltimaPosicaoDoElementoBuscado() {
 
        assertEquals(3, list.lastIndexOf("A"));
 
+    }
+
+    @Test
+    public void deveRetornarNegativoCasoOELementoNãoSejaEncontrado(){
+
+        assertEquals(-1, list.lastIndexOf("E"));
 
     }
 
