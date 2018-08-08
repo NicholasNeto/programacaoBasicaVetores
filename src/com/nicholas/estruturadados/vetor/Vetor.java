@@ -2,7 +2,6 @@ package com.nicholas.estruturadados.vetor;
 
 public class Vetor {
 
-    //public String[] listaElementos;
     private String[] listaElementos;
     private int tamanho;
 
@@ -33,9 +32,7 @@ public class Vetor {
 
     public void remove(int posicao){
 
-        if(!(posicao >= 0 && posicao < this.tamanho)){
-            throw new IllegalArgumentException("Position Invalid");
-        }
+        isPositionValid(posicao);
 
         for(int contador = posicao; contador < this.tamanho-1; contador++){
             listaElementos[contador] = listaElementos[contador+1];
@@ -57,9 +54,7 @@ public class Vetor {
     public boolean add(int posicao, String elemento) {
 
          aumentaCapacidade();
-        if(!(posicao >= 0 && posicao < tamanho)){
-            throw new IllegalArgumentException("Position Invalid");
-        }
+         isPositionValid(posicao);
 
         for(int contador = tamanho - 1; contador >= posicao; contador--){
             listaElementos[contador + 1 ] = listaElementos[contador];
@@ -72,10 +67,7 @@ public class Vetor {
     }
 
     public String busca(int posicao) {
-
-        if(!(posicao >= 0 && posicao < tamanho)){
-            throw new IllegalArgumentException("Position Invalid");
-        }
+        isPositionValid(posicao);
         return listaElementos[posicao];
     }
 
@@ -107,5 +99,11 @@ public class Vetor {
 
         superString.append("]");
         return superString.toString();
+    }
+
+    public void isPositionValid(int posicao){
+        if(!(posicao >= 0 && posicao < this.tamanho)) {
+            throw new IllegalArgumentException("Position Invalid");
+        }
     }
 }
