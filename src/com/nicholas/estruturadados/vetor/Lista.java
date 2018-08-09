@@ -40,8 +40,6 @@ public class Lista<T> {
         this.tamanho--;
     }
 
-
-
     public void removeByElement(T posicao){
 
         int pos = busca(posicao);
@@ -50,6 +48,13 @@ public class Lista<T> {
         }
     }
 
+    public T[] cleanElementos() {
+
+        T[] novaListaDeElementos = (T[]) new Object[listaElementos.length];
+        this.listaElementos = novaListaDeElementos;
+        tamanho = 0;
+        return  this.listaElementos;
+    }
 
     public boolean add(T elemento) {
         aumentaCapacidade();
