@@ -1,3 +1,5 @@
+package com.nicholas.estruturadados.vetor.AulasListas;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

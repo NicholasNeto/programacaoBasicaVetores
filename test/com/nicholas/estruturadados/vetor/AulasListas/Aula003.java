@@ -1,4 +1,4 @@
-
+package com.nicholas.estruturadados.vetor.AulasListas;
 
 import com.nicholas.estruturadados.vetor.Vetor;
 import org.junit.jupiter.api.Test;

@@ -1,3 +1,5 @@
+package com.nicholas.estruturadados.vetor.AulasListas;
+
 import com.nicholas.estruturadados.vetor.Vetor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,10 +1,8 @@
+package com.nicholas.estruturadados.vetor.AulasListas;
+
 import com.nicholas.estruturadados.vetor.Vetor;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -37,6 +35,17 @@ public class Aula004 {
         String expectElementos = "[Primeiro, Segundo, Terceiro]";
 
         assertEquals(expectElementos, vetor.toString());
+
+    }
+
+    public static class Aula002 {
+
+        @Test
+        public void deveCriarUmaListaComCapacidadeIndicada(){
+            Vetor vetor = new  Vetor(6);
+
+            assertEquals(6, vetor.capacidade());
+        }
 
     }
 }

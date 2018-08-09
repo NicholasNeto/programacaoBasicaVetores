@@ -1,4 +1,4 @@
-package exercicios;
+package com.nicholas.estruturadados.vetor.AulasListas.exerciciosListas;
 
 import com.nicholas.estruturadados.vetor.Lista;
 import org.junit.jupiter.api.BeforeEach;
