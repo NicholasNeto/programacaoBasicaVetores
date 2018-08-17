@@ -1,9 +1,13 @@
 package com.nicholas.estruturadados.vetor;
+import com.nicholas.estruturadados.basica;
 
-public class Lista<T> {
+
+
+public class Lista<T> extends basica<T> {
 
     private T[] listaElementos;
     private int tamanho;
+
 
     public Lista(int capacidade) {
         this.listaElementos = (T[]) new Object[capacidade];
@@ -14,21 +18,6 @@ public class Lista<T> {
         return this.tamanho;
     }
 
-    public int capacidade(){
-        return this.listaElementos.length;
-    }
-
-    private void aumentaCapacidade() {
-        if (tamanho == listaElementos.length) {
-
-            T[] novaListaDeElementos = (T[]) new Object[listaElementos.length * 2];
-
-            for (int contador = 0; contador < listaElementos.length; contador++) {
-                novaListaDeElementos[contador] = listaElementos[contador];
-            }
-            this.listaElementos = novaListaDeElementos;
-        }
-    }
 
     public void removeByPosition(int posicao){
 
@@ -48,14 +37,6 @@ public class Lista<T> {
         }
     }
 
-    public T[] cleanElementos() {
-
-        T[] novaListaDeElementos = (T[]) new Object[listaElementos.length];
-        this.listaElementos = novaListaDeElementos;
-        tamanho = 0;
-        return  this.listaElementos;
-    }
-
     public boolean add(T elemento) {
         aumentaCapacidade();
         if (tamanho < listaElementos.length) {
@@ -68,8 +49,8 @@ public class Lista<T> {
 
     public boolean add(int posicao, T elemento) {
 
-        aumentaCapacidade();
         isPositionValid(posicao);
+        aumentaCapacidade();
 
         for(int contador = tamanho - 1; contador >= posicao; contador--){
             listaElementos[contador + 1 ] = listaElementos[contador];
@@ -83,7 +64,7 @@ public class Lista<T> {
 
     public T busca(int posicao) {
 
-        isPositionValid(posicao);
+
         return listaElementos[posicao];
     }
 
@@ -98,10 +79,6 @@ public class Lista<T> {
         return -1;
     }
 
-    public boolean contains(T elemento){
-        return busca(elemento) > -1 ;
-    }
-
     public int lastIndexOf(T elemento) {
 
         for (int posicao = this.tamanho-1; posicao > 0; posicao--) {
@@ -112,11 +89,15 @@ public class Lista<T> {
         return -1;
     }
 
-    public boolean isPositionValid(int posicao){
-        if(!(posicao >= 0 && posicao < this.tamanho)) {
-            throw new IllegalArgumentException("Position Invalid");
+
+    private void aumentaCapacidade() {
+        if (tamanho == listaElementos.length) {
+            T[] novaListaDeElementos = (T[]) new Object[listaElementos.length * 2];
+            for (int contador = 0; contador < listaElementos.length; contador++) {
+                novaListaDeElementos[contador] = listaElementos[contador];
+            }
+            this.listaElementos = novaListaDeElementos;
         }
-        return true;
     }
 
 
