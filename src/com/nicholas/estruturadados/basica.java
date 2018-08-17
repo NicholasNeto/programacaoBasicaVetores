@@ -2,12 +2,16 @@ package com.nicholas.estruturadados;
 
 public class basica<T> {
 
-    private T[] listaElementos;
-    private int tamanho;
+    protected T[] listaElementos;
+    protected int tamanho;
 
     public basica(int capacidade) {
         this.listaElementos = (T[]) new Object[capacidade];
         tamanho = 0;
+    }
+
+    public basica(){
+        this(10);
     }
 
     private void aumentaCapacidade() {
@@ -23,7 +27,7 @@ public class basica<T> {
     }
 
 
-    public boolean add(T elemento) {
+    protected boolean add(T elemento) {
         aumentaCapacidade();
         if (tamanho < listaElementos.length) {
             listaElementos[tamanho] = elemento;
@@ -33,7 +37,7 @@ public class basica<T> {
         return false;
     }
 
-    public boolean add(int posicao, T elemento) {
+    protected boolean add(int posicao, T elemento) {
 
         aumentaCapacidade();
         isPositionValid(posicao);
@@ -56,22 +60,4 @@ public class basica<T> {
     }
 
 
-    @Override
-    public String toString() {
-
-        StringBuilder superString = new StringBuilder();
-        superString.append("[");
-
-        for(int contador = 0; contador < tamanho -1 ; contador++){
-            superString.append(listaElementos[contador]);
-            superString.append(", ");
-        }
-
-        if( tamanho > 0 ){
-            superString.append(listaElementos[tamanho - 1 ]);
-        }
-
-        superString.append("]");
-        return superString.toString();
-    }
 }
